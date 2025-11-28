@@ -67,8 +67,13 @@ public class Main {
                     String title = sc.nextLine();
                     System.out.print("Yazar adı: ");
                     String authorName = sc.nextLine();
-                    System.out.print("Kategori: ");
-                    String category = sc.nextLine();
+                    System.out.println("Kategori seçiniz:");
+                    for (Category c : Category.values()) {
+                        System.out.println("- " + c);
+                    }
+                    String cat = sc.nextLine().toUpperCase();
+
+                    Category category = Category.valueOf(cat);
 
                     // Yazar tekilleştirme.Burada eger daha once boyle bir yazar varsa yeni id atamiyoruz
                     Author author = library.getAuthorService().getAuthorByName(authorName);
@@ -118,8 +123,13 @@ public class Main {
                             if (list.isEmpty()) System.out.println("Sonuç bulunamadı.");
                         }
                         case "4" -> {
-                            System.out.print("Kategori: ");
-                            String category = sc.nextLine();
+                            System.out.println("Kategori seçiniz:");
+                            for (Category c : Category.values()) {
+                                System.out.println("- " + c);
+                            }
+                            String cat = sc.nextLine().toUpperCase();
+
+                            Category category = Category.valueOf(cat);
                             List<Book> list = library.getBookService().findByCategory(category);
                             list.forEach(System.out::println);
                             if (list.isEmpty()) System.out.println("Sonuç bulunamadı.");
@@ -202,8 +212,14 @@ public class Main {
                             if (!newTitle.isBlank()) book.setTitle(newTitle);
 
                             System.out.print("Yeni kategori (boş bırakılırsa değişmez): ");
-                            String newCategory = sc.nextLine();
-                            if (!newCategory.isBlank()) book.setCategory(newCategory);
+                            System.out.println("Kategori seçiniz:");
+                            for (Category c : Category.values()) {
+                                System.out.println("- " + c);
+                            }
+                            String newCategory = sc.nextLine().toUpperCase();
+
+                            Category category = Category.valueOf(newCategory);
+                            if (!newCategory.isBlank()) book.setCategory(category);
 
                             System.out.print("Yeni yazar adı (boş bırakılırsa değişmez): ");
                             String newAuthorName = sc.nextLine();
@@ -323,8 +339,13 @@ public class Main {
                             if (list.isEmpty()) System.out.println("Sonuç bulunamadı.");
                         }
                         case "4" -> {
-                            System.out.print("Kategori: ");
-                            String category = sc.nextLine();
+                            System.out.println("Kategori seçiniz:");
+                            for (Category c : Category.values()) {
+                                System.out.println("- " + c);
+                            }
+                            String cat = sc.nextLine().toUpperCase();
+
+                            Category category = Category.valueOf(cat);
                             List<Book> list = library.getBookService().findByCategory(category);
                             list.forEach(System.out::println);
                             if (list.isEmpty()) System.out.println("Sonuç bulunamadı.");

@@ -1,8 +1,10 @@
 package services;
 
 import models.Book;
+import models.Category;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 //BookService: Kitap işlemlerini yönetir
 //Kitap ekleme/güncelleme
@@ -44,13 +46,14 @@ public class BookService {
         return result;
     }
 
-    public List<Book> findByCategory(String category) {
-        List<Book> result = new ArrayList<>();
-        for (Book b : bookMap.values()) {
-            if (b.getCategory().equalsIgnoreCase(category)) result.add(b);
-        }
-        return result;
+
+    public List<Book> findByCategory(Category category) {
+        return bookMap.values().stream()
+                .filter(book -> book.getCategory() == category)
+                .collect(Collectors.toList());
     }
+
+
 
     public List<Book> listAllBooks() {
         return new ArrayList<>(bookMap.values());

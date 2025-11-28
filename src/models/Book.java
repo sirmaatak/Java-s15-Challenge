@@ -10,13 +10,13 @@ public class Book {
     private final String id;       // kitap ID'si, örn: B1001
     private String title;          // kitap başlığı
     private Author author;         // yazari (Author nesnesi)
-    private String category;       // kitap kategorisi TODO: Daha sonra ENUM yapalim
+    private Category category;// kitap kategorisi
     private boolean isAvailable = true; //kitap odunc almaya musait mi?
 
    //kitabi kimin odunc aldigini tutmak icin
     private Member borrowedBy = null;
 
-    public Book(String id, String title, Author author, String category) {
+    public Book(String id, String title, Author author, Category category) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -31,8 +31,8 @@ public class Book {
     public Author getAuthor() { return author; }
     public void setAuthor(Author author) { this.author = author; }
 
-    public String getCategory() { return category; }
-    public void setCategory(String category) { this.category = category; }
+    public Category getCategory() { return category; }
+    public void setCategory(Category category) { this.category = category; }
 
     public boolean getIsAvailable() { return isAvailable; }
     public void setAvailable(boolean available) {

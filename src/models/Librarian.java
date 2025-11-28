@@ -1,12 +1,10 @@
 package models;
 
-import java.util.List;
-import java.util.Objects;
-import services.BookService;
 
+import java.util.Objects;
 
  //Librarian sinifi, kütüphanede kitap ekleme/guncelleme/silme islemlerini yapabilir.
- //BookService tanimladim, böylece her metod kullaniminda tekrar tekrar parametre tanimlamasina gerek yok.
+
 
 public class Librarian {
     private final String id;            // calisan id
